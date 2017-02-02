@@ -1,6 +1,7 @@
 # Project Title
 
 This is a PHP wrapper for the Brightcove Playback API
+
 File caching layer is activated by adding require_once('bc-papi-cache.php') to get-brightcove-media.php
 
 ## Getting Started
@@ -33,7 +34,7 @@ $playlist = $bc->find('find_playlist_by_reference_id', 'playlists', $ref321);
 
 ## Authors
 
-* **Theresa Newman** - *Initial work* - [PurpleBooth](https://github.com/theresaweb/Brightcove-Playback-API-Wrapper)
+* **Theresa Newman** - *Initial work* - [Brightcove-Playback-API-Wrapper](https://github.com/theresaweb/Brightcove-Playback-API-Wrapper)
 
 ## Acknowledgments
 
