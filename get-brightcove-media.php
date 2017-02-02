@@ -1,5 +1,4 @@
 <?php
-$env = ENVIRONMENT;
 // Include the BCPAPI SDK
 require_once('bc-papi.php');
 require_once('bc-papi-cache.php');
