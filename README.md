@@ -1,4 +1,4 @@
-# Project Title
+# Brightcove Playback API Wrapper
 
 This is a PHP wrapper for the Brightcove Playback API
 
