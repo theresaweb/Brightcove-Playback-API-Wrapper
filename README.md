@@ -1,6 +1,6 @@
 # Brightcove Playback API Wrapper
 
-This is a PHP wrapper for the Brightcove Playback API
+This is a PHP wrapper for the [Brightcove Playback API](https://docs.brightcove.com/en/video-cloud/playback-api/)
 
 File caching layer is activated by adding require_once('bc-papi-cache.php') to get-brightcove-media.php
 
