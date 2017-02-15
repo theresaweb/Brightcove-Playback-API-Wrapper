@@ -2,8 +2,6 @@
 
 This is a PHP wrapper for the [Brightcove Playback API](https://docs.brightcove.com/en/video-cloud/playback-api/)
 
-File caching layer is activated by adding require_once('bc-papi-cache.php') to get-brightcove-media.php
-
 ## Getting Started
 
 Add files to project folder. 
@@ -12,6 +10,8 @@ In get-brighcove-media.php replace the policy token and account number when the 
 
 To obtain policy key see this doc: http://docs.brightcove.com/en/video-cloud/brightcove-player/guides/policy-key.html
 or use the web app to get one directly from the Policy API: http://docs.brightcove.com/en/video-cloud/policy-api/getting-started/quick-start.html#Set_policy_app
+
+File caching layer is activated by adding require_once('bc-papi-cache.php') to get-brightcove-media.php
 
 Access api as follows (e.g. files placed in folder named brightcove-playback-api):
 
