@@ -6,7 +6,14 @@ File caching layer is activated by adding require_once('bc-papi-cache.php') to g
 
 ## Getting Started
 
-Add files to project folder. Access as follows (e.g. files placed in folder named brightcove-playback-api):
+Add files to project folder. 
+
+In get-brighcove-media.php replace the policy token and account number when the class is instantiated
+
+To obtain policy key see this doc: http://docs.brightcove.com/en/video-cloud/brightcove-player/guides/policy-key.html
+or use the web app to get one directly from the Policy API: http://docs.brightcove.com/en/video-cloud/policy-api/getting-started/quick-start.html#Set_policy_app
+
+Access api as follows (e.g. files placed in folder named brightcove-playback-api):
 
 ```
 require_once($_SERVER['DOCUMENT_ROOT'] . '/brightcove-playback-api/get-brightcove-media.php');

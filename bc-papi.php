@@ -12,7 +12,26 @@
  * get video by reference id - pass type=videos and reference id e.g ref:12345 to find method
  * get playlist by id - pass type=playlists and playlist id  to find method
  * playlist by reference id - pass type=playlists and reference id e.g ref:12345 to find method
- */
+ *
+ *
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software 
+ * and associated documentation files (the "Software"), to deal in the Software without restriction, 
+ * including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+ * and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, 
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included 
+ * in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT 
+ *NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH 
+ THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
+ *
+**/
 
 class BCPAPI
 {
@@ -36,7 +55,7 @@ class BCPAPI
 	private $timeout_current = 0;
 	private $timeout_delay = 1;
 	private $timeout_retry = FALSE;
-	private $token_read = NULL;
+	private $policy_key = NULL;
 	private $bc_account = NULL;
 	private $url_read = 'https://edge.api.brightcove.com/playback/v1/accounts/';
 	private $valid_types = array(
@@ -47,12 +66,12 @@ class BCPAPI
 	/**
 	 * The constructor for the BCPAPI class.
 	 * @access Public
-	 * @param string [$token_read] The policy token for Brightcove player
+	 * @param string [$policy_key] The policy token for Brightcove player
 	 * @param string [$bc_account] The Brightcove account id
 	 */
-	public function __construct($token_read = NULL,$bc_account=NULL)
+	public function __construct($policy_key = NULL,$bc_account=NULL)
 	{
-		$this->token_read = $token_read;
+		$this->policy_key = $policy_key;
 		$this->bc_account = $bc_account;
 	}
 
@@ -160,7 +179,7 @@ class BCPAPI
 
 		$this->timeout_current++;
 
-		if(!isset($this->token_read))
+		if(!isset($this->policy_key))
 		{
 			throw new BCPAPITokenError($this, self::ERROR_READ_TOKEN_NOT_PROVIDED);
 		}
@@ -217,14 +236,14 @@ class BCPAPI
 	 */
 	private function curlRequest($request)
 	{
-	$policy_token = 'Accept: application/json;pk='.$this->token_read;	
+	$account_policy_key = 'Accept: application/json;pk='.$this->policy_key;	
 	$ch = curl_init($request);
 	curl_setopt_array($ch, array(
         CURLOPT_CUSTOMREQUEST  => "GET",
         CURLOPT_RETURNTRANSFER => TRUE,
         CURLOPT_SSL_VERIFYPEER => FALSE,
         CURLOPT_HTTPHEADER     => array(
-            $policy_token
+            $account_policy_key
         )
     ));
 	
